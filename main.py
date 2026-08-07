@@ -14,7 +14,7 @@ from scrapers.salesforce import SalesforceScraper
 from scrapers.algoworks import AlgoworksScraper
 from scrapers.virtusa import VirtusaScraper
 from scrapers.coforge import CoforgeScraper
-
+from scrapers.delta import DeltaScraper
 
 def run_scraper(scraper, filename):
 
@@ -91,10 +91,14 @@ scrapers = [
 #     VirtusaScraper(),
 #     "virtusa_jobs.csv"
 # ),
+# (
+#     CoforgeScraper(),
+#     "coforge_jobs.csv"
+# ),
 (
-    CoforgeScraper(),
-    "coforge_jobs.csv"
-)
+    DeltaScraper(),
+    "delta_jobs.csv"
+),
 
 ]
 
