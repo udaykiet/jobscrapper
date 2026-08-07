@@ -1,3 +1,6 @@
-2026/08/07-07:19:30.261 5f12a6 Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/MANIFEST-000001
-2026/08/07-07:19:30.269 5f12a6 Recovering log #19
-2026/08/07-07:19:30.270 5f12a6 Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/000019.log 
+2026/08/07-07:54:48.326 5fb15b Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/MANIFEST-000001
+2026/08/07-07:54:48.330 5fb15b Recovering log #26
+2026/08/07-07:54:48.330 5fb15b Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/000026.log 
+2026/08/07-07:55:08.485 5fb15f Level-0 table #30: started
+2026/08/07-07:55:08.487 5fb15f Level-0 table #30: 14535 bytes OK
+2026/08/07-07:55:08.488 5fb15f Delete type=0 #26

@@ -36,7 +36,7 @@ def main():
 
 
         # Apply filters
-        scraper.apply_filters()
+        scraper.open_filtered_url()
 
 
 

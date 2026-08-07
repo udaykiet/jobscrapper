@@ -54,21 +54,14 @@ class NaukriScraper:
     def wait_for_login(self):
 
         input(
-            "Login using OTP manually. After reaching homepage press ENTER..."
-        )
-
-
-        print(
-            "Login session stored in Chrome profile"
+            "Login manually and press ENTER..."
         )
 
 
 
     def search_jobs(self, keyword, experience):
 
-        print(
-            "Opening search bar..."
-        )
+        print("Opening search...")
 
 
         self.page.locator(
@@ -76,42 +69,24 @@ class NaukriScraper:
         ).click()
 
 
-        self.page.wait_for_timeout(
-            2000
-        )
+        self.page.wait_for_timeout(2000)
 
 
-        print(
-            f"Searching for {keyword}"
-        )
 
-
-        keyword_input = self.page.locator(
+        self.page.locator(
             "input[placeholder='Enter keyword / designation / companies']"
-        )
-
-
-        keyword_input.fill(
+        ).fill(
             keyword
         )
 
 
-        print(
-            "Selecting experience..."
-        )
 
-
-        exp_input = self.page.locator(
+        self.page.locator(
             "#experienceDD"
-        )
+        ).click()
 
 
-        exp_input.click()
-
-
-        self.page.wait_for_timeout(
-            2000
-        )
+        self.page.wait_for_timeout(2000)
 
 
         self.page.get_by_text(
@@ -120,20 +95,11 @@ class NaukriScraper:
         ).click()
 
 
-        print(
-            f"Experience selected: {experience}"
-        )
-
-
-
-        print(
-            "Clicking search button..."
-        )
-
 
         self.page.locator(
             "button.nI-gNb-sb__icon-wrapper"
         ).click()
+
 
 
         print(
@@ -147,70 +113,43 @@ class NaukriScraper:
 
 
 
-    def apply_filters(self):
+    def open_filtered_url(self):
+
+        url = (
+            "https://www.naukri.com/java-jobs"
+            "?k=java"
+            "&nignbevent_src=jobsearchDeskGNB"
+            "&experience=2"
+            "&jobAge=1"
+            "&ctcFilter=3to6"
+            "&ctcFilter=6to10"
+            "&ctcFilter=10to15"
+        )
+
 
         print(
-            "Applying freshness filter..."
+            "Opening filtered URL:"
         )
 
 
-        freshness_button = self.page.locator(
-            "#filter-freshness"
+        print(url)
+
+
+
+        self.page.goto(
+            url,
+            wait_until="domcontentloaded",
+            timeout=60000
         )
-
-
-        if freshness_button.count() == 0:
-
-            print(
-                "Freshness filter not found"
-            )
-
-            return
-
-
-
-        freshness_button.click()
 
 
         self.page.wait_for_timeout(
-            1000
+            10000
         )
 
 
         print(
-            "Selecting Last 1 day..."
-        )
-
-
-        last_day = self.page.locator(
-            "a[data-id='filter-freshness-1']"
-        )
-
-
-        if last_day.count():
-
-            last_day.click()
-
-
-            print(
-                "Freshness selected: Last 1 day"
-            )
-
-
-        else:
-
-            print(
-                "Last 1 day option not found"
-            )
-
-
-        self.page.wait_for_timeout(
-            5000
-        )
-
-
-        print(
-            "Freshness filter applied"
+            "Filtered search loaded"
         )
 
 
@@ -228,89 +167,93 @@ class NaukriScraper:
         )
 
 
-        next_buttons = self.page.locator(
-            "div.styles_pagination__oIvXh a.styles_btn-secondary__2AsIP"
+        next_button = self.page.locator(
+            "div.styles_pagination-cont__sWhS6 a.styles_btn-secondary__2AsIP"
+        ).filter(
+            has_text="Next"
         )
 
 
-        next_button = None
-
-
-        for i in range(next_buttons.count()):
-
-            button = next_buttons.nth(i)
-
-
-            text = (
-                button
-                .inner_text()
-                .strip()
-            )
-
-
-            if text.startswith("Next"):
-
-                next_button = button
-                break
-
-
-
-        if next_button is None:
+        if next_button.count() == 0:
 
             print(
-                "Next button not found"
+                "Next page not available"
             )
 
             return False
 
 
 
-        disabled = next_button.get_attribute(
+        if next_button.get_attribute(
             "disabled"
-        )
-
-
-        if disabled is not None:
+        ) is not None:
 
             print(
-                "Reached last page"
+                "Last page reached"
             )
 
             return False
 
 
 
-        next_url = next_button.get_attribute(
+        next_href = next_button.get_attribute(
             "href"
         )
 
 
-        if not next_url:
-
-            print(
-                "Next URL missing"
-            )
+        if not next_href:
 
             return False
 
 
 
+        current_url = self.page.url
+
+
+
+        query = ""
+
+
+        if "?" in current_url:
+
+            query = current_url.split("?")[1]
+
+
+
+        next_url = (
+            "https://www.naukri.com"
+            +
+            next_href
+        )
+
+
+
+        if query:
+
+            next_url += (
+                "?"
+                +
+                query
+            )
+
+
+
         print(
-            "Moving to:",
+            "Opening:",
             next_url
         )
 
 
 
         self.page.goto(
-            "https://www.naukri.com" + next_url,
+            next_url,
             wait_until="domcontentloaded",
             timeout=60000
         )
 
 
         self.page.wait_for_timeout(
-            5000
+            8000
         )
 
 
