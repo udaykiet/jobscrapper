@@ -1,3 +1,6 @@
-2026/08/07-06:18:02.596 5df5e9 Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/08/07-06:18:02.596 5df5e9 Recovering log #3
-2026/08/07-06:18:02.600 5df5e9 Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/000003.log 
+2026/08/07-07:21:34.156 5f1f8f Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/08/07-07:21:34.157 5f1f8f Recovering log #7
+2026/08/07-07:21:34.164 5f1f8f Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/000007.log 
+2026/08/07-07:21:54.888 5f1f91 Level-0 table #13: started
+2026/08/07-07:21:54.897 5f1f91 Level-0 table #13: 1629865 bytes OK
+2026/08/07-07:21:54.899 5f1f91 Delete type=0 #7

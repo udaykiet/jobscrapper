@@ -66,7 +66,9 @@ class NaukriScraper:
 
     def search_jobs(self, keyword, experience):
 
-        print("Opening search bar...")
+        print(
+            "Opening search bar..."
+        )
 
 
         self.page.locator(
@@ -74,8 +76,9 @@ class NaukriScraper:
         ).click()
 
 
-        self.page.wait_for_timeout(2000)
-
+        self.page.wait_for_timeout(
+            2000
+        )
 
 
         print(
@@ -88,8 +91,9 @@ class NaukriScraper:
         )
 
 
-        keyword_input.fill(keyword)
-
+        keyword_input.fill(
+            keyword
+        )
 
 
         print(
@@ -105,15 +109,15 @@ class NaukriScraper:
         exp_input.click()
 
 
-        self.page.wait_for_timeout(2000)
-
+        self.page.wait_for_timeout(
+            2000
+        )
 
 
         self.page.get_by_text(
             experience,
             exact=True
         ).click()
-
 
 
         print(
@@ -132,19 +136,190 @@ class NaukriScraper:
         ).click()
 
 
-
         print(
             "Search completed"
         )
 
 
-        self.page.wait_for_timeout(10000)
+        self.page.wait_for_timeout(
+            10000
+        )
+
+
+
+    def apply_filters(self):
+
+        print(
+            "Applying freshness filter..."
+        )
+
+
+        freshness_button = self.page.locator(
+            "#filter-freshness"
+        )
+
+
+        if freshness_button.count() == 0:
+
+            print(
+                "Freshness filter not found"
+            )
+
+            return
+
+
+
+        freshness_button.click()
+
+
+        self.page.wait_for_timeout(
+            1000
+        )
+
+
+        print(
+            "Selecting Last 1 day..."
+        )
+
+
+        last_day = self.page.locator(
+            "a[data-id='filter-freshness-1']"
+        )
+
+
+        if last_day.count():
+
+            last_day.click()
+
+
+            print(
+                "Freshness selected: Last 1 day"
+            )
+
+
+        else:
+
+            print(
+                "Last 1 day option not found"
+            )
+
+
+        self.page.wait_for_timeout(
+            5000
+        )
+
+
+        print(
+            "Freshness filter applied"
+        )
 
 
 
     def get_page(self):
 
         return self.page
+
+
+
+    def go_to_next_page(self):
+
+        print(
+            "Checking next page..."
+        )
+
+
+        next_buttons = self.page.locator(
+            "div.styles_pagination__oIvXh a.styles_btn-secondary__2AsIP"
+        )
+
+
+        next_button = None
+
+
+        for i in range(next_buttons.count()):
+
+            button = next_buttons.nth(i)
+
+
+            text = (
+                button
+                .inner_text()
+                .strip()
+            )
+
+
+            if text.startswith("Next"):
+
+                next_button = button
+                break
+
+
+
+        if next_button is None:
+
+            print(
+                "Next button not found"
+            )
+
+            return False
+
+
+
+        disabled = next_button.get_attribute(
+            "disabled"
+        )
+
+
+        if disabled is not None:
+
+            print(
+                "Reached last page"
+            )
+
+            return False
+
+
+
+        next_url = next_button.get_attribute(
+            "href"
+        )
+
+
+        if not next_url:
+
+            print(
+                "Next URL missing"
+            )
+
+            return False
+
+
+
+        print(
+            "Moving to:",
+            next_url
+        )
+
+
+
+        self.page.goto(
+            "https://www.naukri.com" + next_url,
+            wait_until="domcontentloaded",
+            timeout=60000
+        )
+
+
+        self.page.wait_for_timeout(
+            5000
+        )
+
+
+        print(
+            "Next page loaded"
+        )
+
+
+        return True
 
 
 

@@ -7,12 +7,18 @@ from csv_writer import CSVWriter
 def main():
 
     scraper = NaukriScraper()
+    extractor = NaukriExtractor()
+
 
     try:
 
+        # Start browser
         scraper.open_browser()
 
+
+        # Open Naukri
         scraper.open_naukri()
+
 
 
         input(
@@ -20,35 +26,88 @@ def main():
         )
 
 
+
+        # Search jobs
         scraper.search_jobs(
             keyword="java",
             experience="2 years"
         )
 
 
-        # Extract jobs
-        extractor = NaukriExtractor()
+
+        # Apply filters
+        scraper.apply_filters()
 
 
-        jobs = extractor.extract_jobs(
-            scraper.get_page()
-        )
+
+        all_jobs = []
+
+
+
+        while True:
+
+
+            print(
+                "Extracting current page..."
+            )
+
+
+            jobs = extractor.extract_jobs(
+                scraper.get_page()
+            )
+
+
+            all_jobs.extend(
+                jobs
+            )
+
+
+            print(
+                f"Total jobs collected: {len(all_jobs)}"
+            )
+
+
+
+            # Move to next page
+
+            next_page = scraper.go_to_next_page()
+
+
+
+            if not next_page:
+
+
+                print(
+                    "No more pages available"
+                )
+
+                break
+
 
 
         print(
-            f"Total jobs extracted: {len(jobs)}"
+            f"Final jobs extracted: {len(all_jobs)}"
         )
 
 
-        # Save jobs into CSV
+
+        # Save CSV
+
         csv_writer = CSVWriter(
-            filename="java_jobs.csv"
+            filename="java_jobs_filtered.csv"
         )
 
 
         csv_writer.save_jobs(
-            jobs
+            all_jobs
         )
+
+
+
+        print(
+            "CSV created successfully"
+        )
+
 
 
         input(
@@ -56,11 +115,14 @@ def main():
         )
 
 
+
     finally:
+
 
         scraper.close()
 
 
 
 if __name__ == "__main__":
+
     main()
