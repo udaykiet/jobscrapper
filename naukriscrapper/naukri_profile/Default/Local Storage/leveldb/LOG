@@ -1,3 +1,15 @@
-2026/08/07-07:57:40.210 5fbe05 Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/MANIFEST-000001
-2026/08/07-07:57:40.214 5fbe05 Recovering log #29
-2026/08/07-07:57:40.214 5fbe05 Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/000029.log 
+2026/08/07-08:23:01.239 60283b Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/MANIFEST-000001
+2026/08/07-08:23:01.243 60283b Recovering log #29
+2026/08/07-08:23:01.243 60283b Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/Local Storage/leveldb/000029.log 
+2026/08/07-08:23:15.885 602842 Level-0 table #33: started
+2026/08/07-08:23:15.888 602842 Level-0 table #33: 15735 bytes OK
+2026/08/07-08:23:15.891 602842 Delete type=0 #29
+2026/08/07-08:23:15.892 602842 Compacting 4@0 + 1@1 files
+2026/08/07-08:23:15.896 602842 Generated table #34@0: 46 keys, 76597 bytes
+2026/08/07-08:23:15.896 602842 Compacted 4@0 + 1@1 files => 76597 bytes
+2026/08/07-08:23:15.897 602842 compacted to: files[ 0 1 1 0 0 0 0 ]
+2026/08/07-08:23:15.897 602842 Delete type=2 #21
+2026/08/07-08:23:15.897 602842 Delete type=2 #33
+2026/08/07-08:23:15.897 602842 Delete type=2 #27
+2026/08/07-08:23:15.897 602842 Delete type=2 #24
+2026/08/07-08:23:15.897 602842 Delete type=2 #30

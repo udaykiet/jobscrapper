@@ -1,9 +1,9 @@
-2026/08/07-07:57:41.714 5fbda9 Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/MANIFEST-000001
-2026/08/07-07:57:41.715 5fbda9 Recovering log #17
-2026/08/07-07:57:41.722 5fbda9 Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/000017.log 
-2026/08/07-07:57:57.381 5fbda9 Compacting 1@1 + 1@2 files
-2026/08/07-07:57:57.386 5fbda9 Generated table #20@1: 126 keys, 86142 bytes
-2026/08/07-07:57:57.386 5fbda9 Compacted 1@1 + 1@2 files => 86142 bytes
-2026/08/07-07:57:57.389 5fbda9 compacted to: files[ 0 0 1 0 0 0 0 ]
-2026/08/07-07:57:57.389 5fbda9 Delete type=2 #15
-2026/08/07-07:57:57.389 5fbda9 Delete type=2 #18
+2026/08/07-08:23:02.587 602799 Reusing MANIFEST /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/08/07-08:23:02.588 602799 Recovering log #22
+2026/08/07-08:23:02.589 602799 Reusing old log /Users/udaypratapsingh/Desktop/JobScraper/naukriscrapper/naukri_profile/Default/IndexedDB/https_www.naukri.com_0.indexeddb.leveldb/000022.log 
+2026/08/07-08:23:19.459 602797 Compacting 1@1 + 1@2 files
+2026/08/07-08:23:19.464 602797 Generated table #25@1: 126 keys, 86718 bytes
+2026/08/07-08:23:19.464 602797 Compacted 1@1 + 1@2 files => 86718 bytes
+2026/08/07-08:23:19.466 602797 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/08/07-08:23:19.466 602797 Delete type=2 #20
+2026/08/07-08:23:19.467 602797 Delete type=2 #23

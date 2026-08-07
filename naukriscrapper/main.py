@@ -1,6 +1,6 @@
 from scraper import NaukriScraper
 from extractor import NaukriExtractor
-from csv_writer import CSVWriter
+from excel_writer import ExcelWriter
 
 
 
@@ -35,7 +35,7 @@ def main():
 
 
 
-        # Apply filters
+        # Open filtered URL
         scraper.open_filtered_url()
 
 
@@ -91,21 +91,21 @@ def main():
 
 
 
-        # Save CSV
+        # Save Excel
 
-        csv_writer = CSVWriter(
-            filename="java_jobs_filtered.csv"
+        excel_writer = ExcelWriter(
+            filename="java_jobs_filtered.xlsx"
         )
 
 
-        csv_writer.save_jobs(
+        excel_writer.save_jobs(
             all_jobs
         )
 
 
 
         print(
-            "CSV created successfully"
+            "Excel created successfully"
         )
 
 
